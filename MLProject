@@ -5,21 +5,17 @@ conda_env: biciclegan-environment.yaml
 entry_points:
   main:
     parameters:
-      batch-size: {type: int, default: 64}
-      test-batch-size: {type: int, default: 1000}
-      epochs: {type: int, default: 1}
-      lr: {type: float, default: 0.01}
-      momentum: {type: float, default: 0.5}
-      enable-cuda: {type: string, default: 'False'}
-      seed: {type: int, default: 5}
-      log-interval: {type: int, default: 100}
+
+      dataroot: {type: string, default: './src/datasets/xBD'}
+      name: {type: string, default: bicycle_gan_aligned_xBD}
+      model: {type: string, default: 'bicycle_gan'}
+      direction: {type: string, default: 'BtoA'}
+      dataset_mode: {type: string, default: aligned}
+      niter: {type: int, default: 1}
+      niter_decay: {type: int, default: 0}
+      save_latest_freq: {type: int, default: 10}
+      display_id: {type: int, default: -1}
+
     command: |
-          python train.py \
-            --batch-size {batch-size} \
-            --test-batch-size {test-batch-size} \
-            --epochs {epochs} \
-            --lr {lr} \
-            --momentum {momentum} \
-            --enable-cuda {enable-cuda} \
-            --seed {seed} \
-            --log-interval {log-interval}
+
+           python ./src/models/BicycleGAN/train.py --model bicycle_gan --name bicycle_gan_aligned_xBD --dataset_mode aligned --dataroot ./src/datasets/xBD --niter 1 --niter_decay 0 --save_latest_freq 10 --display_id -1
