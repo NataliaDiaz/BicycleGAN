@@ -1,9 +1,12 @@
 import torch
 from .base_model import BaseModel
 from . import networks
+# from torch.utils.data import DataLoader
+# from torchvision.datasets import MNIST
+# from torchvision import transforms
+import pytorch_lightning as pl
 
-
-class BiCycleGANModel(BaseModel):
+class BiCycleGANModel(BaseModel, pl.LightningModule):
     @staticmethod
     def modify_commandline_options(parser, is_train=True):
         return parser
