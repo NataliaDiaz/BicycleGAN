@@ -1,0 +1,25 @@
+name: BicycleGAN
+
+conda_env: biciclegan-environment.yaml
+
+entry_points:
+  main:
+    parameters:
+      batch-size: {type: int, default: 64}
+      test-batch-size: {type: int, default: 1000}
+      epochs: {type: int, default: 1}
+      lr: {type: float, default: 0.01}
+      momentum: {type: float, default: 0.5}
+      enable-cuda: {type: string, default: 'False'}
+      seed: {type: int, default: 5}
+      log-interval: {type: int, default: 100}
+    command: |
+          python train.py \
+            --batch-size {batch-size} \
+            --test-batch-size {test-batch-size} \
+            --epochs {epochs} \
+            --lr {lr} \
+            --momentum {momentum} \
+            --enable-cuda {enable-cuda} \
+            --seed {seed} \
+            --log-interval {log-interval}
