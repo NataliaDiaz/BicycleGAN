@@ -1,10 +1,12 @@
 import argparse
 import os
-from util import util
+from src.models.BicycleGAN.util import util #  or ..util import util
+import src.models.BicycleGAN.models 
+import src.models.BicycleGAN.data
+# import models
+# import data 
+#from util import util
 import torch
-import models
-import data
-
 
 class BaseOptions():
     def __init__(self):

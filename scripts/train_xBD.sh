@@ -9,7 +9,7 @@ LOAD_SIZE=256
 CROP_SIZE=256
 INPUT_NC=3
 NITER=1 #30
-NITER_DECAY= 0 #30
+NITER_DECAY=0 #30
 
 # training
 GPU_ID=0
@@ -32,4 +32,4 @@ CUDA_VISIBLE_DEVICES=${GPU_ID} python ./train.py \
   --niter ${NITER} \
   --niter_decay ${NITER_DECAY} \
   --use_dropout\
-  --dataset_mode aligned 
+  --dataset_mode aligned
